@@ -52,6 +52,14 @@
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="false"/>
 
+        <table tableName="tp_testcase" enableCountByExample="true"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="false"/>
+
+        <table tableName="tp_testsuite" enableCountByExample="true"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="false"/>
+
     </context>
 </generatorConfiguration>
 
