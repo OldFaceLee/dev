@@ -41,5 +41,10 @@ public class TestcaseController {
         return testcaseSv.updateTestcase(testcase);
     }
 
+    @PostMapping()
+    public boolean delelteTestcase(){
+return false;
+    }
+
 
 }

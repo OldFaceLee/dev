@@ -7,5 +7,16 @@ package com.ai.dev.support.util;
  */
 public class DateUtil {
 
+    private DateUtil(){}
+    private static class Singleton{
+        private static DateUtil instance = new DateUtil();
+    }
+    public static DateUtil getInstance(){
+        return Singleton.instance;
+    }
+
+
+
+
 
 }
