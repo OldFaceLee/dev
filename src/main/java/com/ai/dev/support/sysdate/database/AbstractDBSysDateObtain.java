@@ -1,10 +1,13 @@
 package com.ai.dev.support.sysdate.database;
 
-import com.ai.dev.support.sysdate.local.ISysDateObtain;
+import com.ai.dev.support.sysdate.ISysDateObtain;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.jdbc.support.JdbcUtils;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import javax.sql.DataSource;
@@ -15,6 +18,7 @@ import java.sql.*;
  * @date: Create in 2020/3/27 上午11:07
  * @description:
  */
+@Slf4j
 public abstract class AbstractDBSysDateObtain implements ISysDateObtain , InitializingBean {
 
     private DataSource dataSource;
@@ -44,7 +48,7 @@ public abstract class AbstractDBSysDateObtain implements ISysDateObtain , Initia
         try {
             stmt = con.createStatement();
             DataSourceUtils.applyTransactionTimeout(stmt, getDataSource());
-            stmt.executeQuery(getDBDateQuery());
+            rs = stmt.executeQuery(getDBDateQuery());
             if (rs.next()) {
                 return rs.getTimestamp(1);
             } else {
@@ -54,8 +58,11 @@ public abstract class AbstractDBSysDateObtain implements ISysDateObtain , Initia
             throw new DataAccessResourceFailureException("Could not obtain DataBase Date value",ex);
         }finally {
             JdbcUtils.closeResultSet(rs);
+            log.info("关闭JDBC的rs");
             JdbcUtils.closeStatement(stmt);
+            log.info("关闭JDBCd stmt");
             DataSourceUtils.releaseConnection(con,getDataSource());
+            log.info("释放dataSource");
         }
     }
 

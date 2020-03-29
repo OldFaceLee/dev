@@ -1,4 +1,4 @@
-package com.ai.dev.support.sysdate.local;
+package com.ai.dev.support.sysdate;
 
 import java.sql.Timestamp;
 

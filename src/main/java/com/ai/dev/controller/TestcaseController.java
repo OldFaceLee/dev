@@ -1,6 +1,8 @@
 package com.ai.dev.controller;
 
 import com.ai.dev.common.controller.response.Response;
+import com.ai.dev.dao.ITpTestcaseDao;
+import com.ai.dev.mapper.customized.TpTestcaseRequest;
 import com.ai.dev.mapper.vo.TpTestcase;
 import com.ai.dev.mapper.vo.TpUser;
 import com.ai.dev.service.ITestcaseSv;
@@ -44,6 +46,11 @@ public class TestcaseController {
     @PostMapping()
     public boolean delelteTestcase(){
 return false;
+    }
+
+    @PostMapping(value = "testcase/query",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Response queryTestcase(@RequestBody @Valid TpTestcaseRequest tpTestcaseRequest){
+        return new Response<>(testcaseSv.queryTestcase(tpTestcaseRequest));
     }
 
 

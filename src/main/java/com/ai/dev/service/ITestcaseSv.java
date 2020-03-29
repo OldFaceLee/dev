@@ -1,5 +1,7 @@
 package com.ai.dev.service;
 
+import com.ai.dev.common.controller.response.PageInfo;
+import com.ai.dev.mapper.customized.TpTestcaseRequest;
 import com.ai.dev.mapper.vo.TpTestcase;
 
 /**
@@ -12,6 +14,9 @@ public interface ITestcaseSv {
     boolean addTestcase(TpTestcase testcase);
 
     boolean updateTestcase(TpTestcase testcase);
+
+    PageInfo<TpTestcase> queryTestcase(TpTestcaseRequest testcase);
+
 
 
 }

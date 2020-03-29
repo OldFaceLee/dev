@@ -12,10 +12,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum TestcaseEnum {
 
-    VALID("1","有效case"),
-    INVALID("0","无效case");
+    VALID(1,"有效case"),
+    INVALID(0,"无效case");
 
-    String value;
+    int value;
     String desc;
 
 }
