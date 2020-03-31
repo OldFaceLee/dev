@@ -1,8 +1,10 @@
 package com.ai.dev.service.impl;
 
 import com.ai.dev.dao.ITpTestsuiteDao;
+import com.ai.dev.mapper.customized.TpTestsuiteRequest;
 import com.ai.dev.mapper.vo.TpTestsuite;
 import com.ai.dev.service.ITestsuiteSv;
+import com.ai.dev.testng.InitilizedTestNG;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
@@ -24,9 +26,18 @@ public class TestsuiteSvImpl implements ITestsuiteSv {
     @Autowired
     ITpTestsuiteDao tpTestsuiteDao;
 
+    @Autowired
+    InitilizedTestNG testNG;
+
     @Override
     public boolean addCaseToSuite(TpTestsuite tpTestsuite) {
         tpTestsuite.setCreateDate(new Date());
         return tpTestsuiteDao.insert(tpTestsuite);
+    }
+
+    @Override
+    public String runSuite(TpTestsuiteRequest tpTestsuiteRequest) {
+        testNG.runTestNG(tpTestsuiteRequest.getGroups(),tpTestsuiteRequest.isParallelByMethod(),tpTestsuiteRequest.getTestngThreadCount());
+        return "reportUrl";
     }
 }

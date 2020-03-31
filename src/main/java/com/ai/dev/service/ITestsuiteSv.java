@@ -1,5 +1,6 @@
 package com.ai.dev.service;
 
+import com.ai.dev.mapper.customized.TpTestsuiteRequest;
 import com.ai.dev.mapper.vo.TpTestsuite;
 
 /**
@@ -10,4 +11,6 @@ import com.ai.dev.mapper.vo.TpTestsuite;
 public interface ITestsuiteSv {
 
     boolean addCaseToSuite(TpTestsuite tpTestsuite);
+
+    public String runSuite(TpTestsuiteRequest tpTestsuiteRequest);
 }

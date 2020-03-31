@@ -54,11 +54,15 @@
 
         <table tableName="tp_testcase" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true"
-               enableSelectByExample="true" selectByExampleQueryId="false"/>
+               enableSelectByExample="true" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
 
         <table tableName="tp_testsuite" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true"
-               enableSelectByExample="true" selectByExampleQueryId="false"/>
+               enableSelectByExample="true" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
 
     </context>
 </generatorConfiguration>

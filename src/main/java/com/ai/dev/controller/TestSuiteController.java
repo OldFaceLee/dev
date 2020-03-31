@@ -1,6 +1,8 @@
 package com.ai.dev.controller;
 
+import com.ai.dev.common.controller.response.Response;
 import com.ai.dev.dao.ITpTestsuiteDao;
+import com.ai.dev.mapper.customized.TpTestsuiteRequest;
 import com.ai.dev.mapper.vo.TpTestsuite;
 import com.ai.dev.service.ITestsuiteSv;
 import lombok.AccessLevel;
@@ -32,6 +34,11 @@ public class TestSuiteController {
     @PostMapping(value = "/testsuite/add",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public boolean addTestsuite(@RequestBody @Valid TpTestsuite tpTestsuite){
        return testsuiteSv.addCaseToSuite(tpTestsuite);
+    }
+
+    @PostMapping(value = "/testsuite/run",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Response runSuite(@RequestBody @Valid TpTestsuiteRequest tpTestsuiteRequest){
+        return new Response<>(testsuiteSv.runSuite(tpTestsuiteRequest));
     }
 
 
