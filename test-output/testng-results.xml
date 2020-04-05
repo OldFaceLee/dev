@@ -2,29 +2,29 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="12" started-at="2020-03-30T16:08:28Z" finished-at="2020-03-30T16:08:28Z">
+  <suite name="Command line suite" duration-ms="5" started-at="2020-03-31T02:04:59Z" finished-at="2020-03-31T02:04:59Z">
     <groups>
       <group name="tc03">
-        <method signature="Testsuite.test03()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@42e79d4e]" name="test03" class="com.ai.dev.testng.testsuite.Testsuite"/>
+        <method signature="Testsuite.test03()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@47e3c6b0]" name="test03" class="com.ai.dev.testng.testsuite.Testsuite"/>
       </group> <!-- tc03 -->
       <group name="tc01">
-        <method signature="Testsuite.test01()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@42e79d4e]" name="test01" class="com.ai.dev.testng.testsuite.Testsuite"/>
+        <method signature="Testsuite.test01()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@47e3c6b0]" name="test01" class="com.ai.dev.testng.testsuite.Testsuite"/>
       </group> <!-- tc01 -->
       <group name="tc02">
-        <method signature="Testsuite.test02()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@42e79d4e]" name="test02" class="com.ai.dev.testng.testsuite.Testsuite"/>
+        <method signature="Testsuite.test02()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@47e3c6b0]" name="test02" class="com.ai.dev.testng.testsuite.Testsuite"/>
       </group> <!-- tc02 -->
     </groups>
-    <test name="Command line test" duration-ms="12" started-at="2020-03-30T16:08:28Z" finished-at="2020-03-30T16:08:28Z">
+    <test name="Command line test" duration-ms="5" started-at="2020-03-31T02:04:59Z" finished-at="2020-03-31T02:04:59Z">
       <class name="com.ai.dev.testng.testsuite.Testsuite">
-        <test-method status="PASS" signature="test01()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@42e79d4e]" name="test01" duration-ms="7" started-at="2020-03-30T16:08:28Z" finished-at="2020-03-30T16:08:28Z">
+        <test-method status="PASS" signature="test01()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@47e3c6b0]" name="test01" duration-ms="1" started-at="2020-03-31T02:04:59Z" finished-at="2020-03-31T02:04:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test01 -->
-        <test-method status="PASS" signature="test02()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@42e79d4e]" name="test02" duration-ms="0" started-at="2020-03-30T16:08:28Z" finished-at="2020-03-30T16:08:28Z">
+        <test-method status="PASS" signature="test02()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@47e3c6b0]" name="test02" duration-ms="1" started-at="2020-03-31T02:04:59Z" finished-at="2020-03-31T02:04:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test02 -->
-        <test-method status="PASS" signature="test03()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@42e79d4e]" name="test03" duration-ms="0" started-at="2020-03-30T16:08:28Z" finished-at="2020-03-30T16:08:28Z">
+        <test-method status="PASS" signature="test03()[pri:0, instance:com.ai.dev.testng.testsuite.Testsuite@47e3c6b0]" name="test03" duration-ms="1" started-at="2020-03-31T02:04:59Z" finished-at="2020-03-31T02:04:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test03 -->

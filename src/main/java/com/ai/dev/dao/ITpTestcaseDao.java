@@ -1,6 +1,6 @@
 package com.ai.dev.dao;
 
-import com.ai.dev.common.controller.response.PageInfo;
+import com.ai.dev.common.pageHelper.PageInfo;
 import com.ai.dev.mapper.customized.TpTestcaseRequest;
 import com.ai.dev.mapper.vo.TpTestcase;
 

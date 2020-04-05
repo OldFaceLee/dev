@@ -15,6 +15,8 @@ public enum TestcaseEnum {
     VALID(1,"有效case"),
     INVALID(0,"无效case");
 
+
+
     int value;
     String desc;
 

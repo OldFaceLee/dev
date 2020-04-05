@@ -1,4 +1,4 @@
-package com.ai.dev.common.controller.response;
+package com.ai.dev.common.pageHelper;
 
 import java.io.Serializable;
 import java.util.Collections;

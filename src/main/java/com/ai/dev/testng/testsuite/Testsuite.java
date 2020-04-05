@@ -1,6 +1,9 @@
 package com.ai.dev.testng.testsuite;
 
+import com.ai.dev.common.testcase.CommonCase;
 import lombok.extern.slf4j.Slf4j;
+import org.testng.Reporter;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /**
@@ -11,16 +14,14 @@ import org.testng.annotations.Test;
 @Slf4j
 public class Testsuite {
 
-    @Test(groups = {"tc01"})
-    public void test01(){
-        log.info(Thread.currentThread().getName()+"测试01");
+    @DataProvider(name = "testData")
+    public static Object[][] dataProvider(){
+        return new Object[][]{};
     }
-    @Test(groups = {"tc02"})
-    public void test02(){
-        log.info(Thread.currentThread().getName()+"测试02");
-    }
-    @Test(groups = {"tc03"})
-    public void test03(){
-        log.info(Thread.currentThread().getName()+"测试03");
+
+    @Test(dataProvider = "testData")
+    public void testcase(CommonCase commonCase){
+        Reporter.log("执行线程名=>"+Thread.currentThread().getName());
+
     }
 }
