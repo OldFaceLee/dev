@@ -2,6 +2,7 @@ package com.ai.dev.testng.testsuite;
 
 import com.ai.dev.common.testcase.CommonCase;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -12,16 +13,25 @@ import org.testng.annotations.Test;
  * @description:
  */
 @Slf4j
-public class Testsuite {
+public class Testsuite extends BaseSuite{
+
+    @Autowired
+    CommonCase commonCase;
 
     @DataProvider(name = "testData")
-    public static Object[][] dataProvider(){
-        return new Object[][]{};
+    public Object[][] dataProvider(){
+        commonCase.setJsonParam("111");
+        commonCase.setJsonParam("222");
+        return new Object[][]{
+                {commonCase}
+        };
     }
 
+
     @Test(dataProvider = "testData")
-    public void testcase(CommonCase commonCase){
-        Reporter.log("执行线程名=>"+Thread.currentThread().getName());
+    public void testcase(CommonCase cc){
+        System.out.println(cc.getJsonParam());
+        System.out.println("执行线程名=>"+Thread.currentThread().getName());
 
     }
 }

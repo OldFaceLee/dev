@@ -50,7 +50,9 @@
         <!--用百分号表示生成所有表,可以直接省去一个一个写 <table tableName="%" /> -->
         <table tableName="tp_user" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true"
-               enableSelectByExample="true" selectByExampleQueryId="false"/>
+               enableSelectByExample="true" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
 
         <table tableName="tp_testcase" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true"

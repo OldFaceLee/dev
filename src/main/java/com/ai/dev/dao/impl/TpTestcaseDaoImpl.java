@@ -2,7 +2,6 @@ package com.ai.dev.dao.impl;
 
 import com.ai.dev.common.pageHelper.PageInfo;
 import com.ai.dev.dao.ITpTestcaseDao;
-import com.ai.dev.em.TestcaseEnum;
 import com.ai.dev.mapper.customized.TpTestcaseRequest;
 import com.ai.dev.mapper.interfaces.TpTestcaseMapper;
 import com.ai.dev.mapper.vo.TpTestcase;
@@ -48,7 +47,7 @@ public class TpTestcaseDaoImpl implements ITpTestcaseDao {
             return Collections.emptyList();
         }
         TpTestcaseCriteria sql = new TpTestcaseCriteria();
-        sql.or().andCaseIdEqualTo(caseId).andIsValidEqualTo(TestcaseEnum.VALID.getValue());
+//        sql.or().andCaseIdEqualTo(caseId).andIsValidEqualTo(TestcaseEnum.VALID.getValue());
         List<TpTestcase> caseInfo = mapper.selectByExample(sql);
         return Optional.ofNullable(caseInfo).orElse(Collections.emptyList());
     }

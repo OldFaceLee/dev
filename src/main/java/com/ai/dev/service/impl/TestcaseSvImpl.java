@@ -2,7 +2,7 @@ package com.ai.dev.service.impl;
 
 import com.ai.dev.common.pageHelper.PageInfo;
 import com.ai.dev.dao.ITpTestcaseDao;
-import com.ai.dev.em.TestcaseEnum;
+import com.ai.dev.mapper.customized.ICustomizedTpTestcaseDao;
 import com.ai.dev.mapper.customized.TpTestcaseRequest;
 import com.ai.dev.mapper.vo.TpTestcase;
 import com.ai.dev.service.ITestcaseSv;
@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -32,6 +33,7 @@ public class TestcaseSvImpl implements ITestcaseSv {
     @Autowired
     ISysDateObtain sysDateObtain;
 
+
     @Override
     public boolean addTestcase(TpTestcase testcase) {
         Assert.notNull(testcase,"测试用例对象不能为空");
@@ -44,7 +46,7 @@ public class TestcaseSvImpl implements ITestcaseSv {
             }
         }
         testcase.setCreateDate(sysDateObtain.getSysdate());
-        testcase.setIsValid(TestcaseEnum.VALID.getValue());
+//        testcase.setIsValid(TestcaseEnum.VALID.getValue());
         return tpTestcaseDao.insert(testcase) >0 ? true : false;
     }
 
@@ -60,6 +62,14 @@ public class TestcaseSvImpl implements ITestcaseSv {
     @Override
     public PageInfo<TpTestcase> queryTestcase(TpTestcaseRequest testcase) {
         return tpTestcaseDao.queryForPageInfo(testcase);
+    }
+
+    @Override
+    public TpTestcase customizedQueryCaseId(String caseId) {
+        if(StringUtils.isEmpty(caseId)){
+            return null;
+        }
+        return null;
     }
 
 }

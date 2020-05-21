@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
@@ -12,6 +13,7 @@ import java.util.Date;
  * @date: Create in 2020/4/1 下午10:22
  * @description:
  */
+@Component
 @Setter
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)

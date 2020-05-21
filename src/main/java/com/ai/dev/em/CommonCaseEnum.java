@@ -11,14 +11,18 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum CommonCaseEnum {
-
-    REQUEST_TYPE_GET("get","get请求"),
-    REQUEST_TYPE_POST("post","post请求"),
-
-    REQUEST_BODY_TYPE("json","jsonBody请求体");
+    VALID(1,"有效case"),
+    INVALID(0,"无效case");
 
 
 
-    String value;
+    /**
+     * 枚举值
+     */
+    int value;
+
+    /**
+     * 枚举描述
+     */
     String desc;
 }

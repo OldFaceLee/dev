@@ -12,9 +12,7 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -51,6 +49,19 @@ return false;
     @PostMapping(value = "testcase/query",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Response queryTestcase(@RequestBody @Valid TpTestcaseRequest tpTestcaseRequest){
         return new Response<>(testcaseSv.queryTestcase(tpTestcaseRequest));
+    }
+
+    @PostMapping(value = "testcase/queryByCustomized",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Response queryByCustomized(@RequestBody String caseID){
+        return new Response<>(testcaseSv.customizedQueryCaseId(caseID));
+    }
+
+    @GetMapping(value = "test/ajax/{param}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Boolean testAjax(@PathVariable String param){
+        if(param.equalsIgnoreCase("param")){
+            return true;
+        }
+        return false;
     }
 
 

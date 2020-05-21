@@ -17,6 +17,8 @@ public interface ITestcaseSv {
 
     PageInfo<TpTestcase> queryTestcase(TpTestcaseRequest testcase);
 
+    TpTestcase customizedQueryCaseId(String caseId);
+
 
 
 }

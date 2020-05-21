@@ -17,7 +17,7 @@ import javax.sql.DataSource;
  */
 @EnableWebMvc
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
+public class WebConfig {
 
     @Autowired
     private DataSource dataSource;
