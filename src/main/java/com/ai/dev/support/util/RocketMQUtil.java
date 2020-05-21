@@ -46,6 +46,10 @@ public class RocketMQUtil {
         }
     }
 
+    public static void main(String[] args) {
+
+    }
+
     /*public  Map<String, Object> PushTaskInfo(String tag, String sendBody) {
         log.info("===================发送代办消息[开始]==================");
         Map<String, Object> map = new HashMap<>();
