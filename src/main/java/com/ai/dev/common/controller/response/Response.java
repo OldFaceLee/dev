@@ -1,6 +1,6 @@
 package com.ai.dev.common.controller.response;
 
-import com.ai.dev.common.controller.em.ResuldCode;
+import com.ai.dev.common.exception.em.ResultCode;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,11 +21,11 @@ public class Response<T> extends CommonResponse {
     T data;
 
     public Response(){
-        super(ResuldCode.OK.getValue(),ResuldCode.OK.getDesc());
+        super(ResultCode.OK.getValue(),ResultCode.OK.getDesc());
     }
 
     public Response(T t){
-        super(ResuldCode.OK.getValue(),ResuldCode.OK.getDesc());
+        super(ResultCode.OK.getValue(),ResultCode.OK.getDesc());
         this.data = t;
     }
 
