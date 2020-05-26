@@ -3,7 +3,9 @@ package com.ai.dev.dao.impl;
 import com.ai.dev.common.pageHelper.PageInfo;
 import com.ai.dev.dao.ITpTestcaseDao;
 import com.ai.dev.mapper.customized.TpTestcaseRequest;
+import com.ai.dev.mapper.interfaces.TpHttpCaseMapper;
 import com.ai.dev.mapper.interfaces.TpTestcaseMapper;
+import com.ai.dev.mapper.vo.TpHttpCase;
 import com.ai.dev.mapper.vo.TpTestcase;
 import com.ai.dev.mapper.vo.TpTestcaseCriteria;
 import com.github.pagehelper.PageHelper;
@@ -31,9 +33,17 @@ public class TpTestcaseDaoImpl implements ITpTestcaseDao {
     @Autowired
     TpTestcaseMapper mapper;
 
+    @Autowired
+    TpHttpCaseMapper httpCaseMapper;
+
     @Override
     public int insert(TpTestcase testcase) {
         return mapper.insert(testcase);
+    }
+
+    @Override
+    public int insert(TpHttpCase tpHttpCase) {
+        return httpCaseMapper.insert(tpHttpCase);
     }
 
     @Override

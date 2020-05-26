@@ -2,6 +2,7 @@ package com.ai.dev.service;
 
 import com.ai.dev.common.pageHelper.PageInfo;
 import com.ai.dev.mapper.customized.TpTestcaseRequest;
+import com.ai.dev.mapper.vo.TpHttpCase;
 import com.ai.dev.mapper.vo.TpTestcase;
 
 /**
@@ -12,6 +13,8 @@ import com.ai.dev.mapper.vo.TpTestcase;
 public interface ITestcaseSv {
 
     boolean addTestcase(TpTestcase testcase);
+
+    TpHttpCase addTestCase(TpHttpCase tpHttpCase);
 
     boolean updateTestcase(TpTestcase testcase);
 

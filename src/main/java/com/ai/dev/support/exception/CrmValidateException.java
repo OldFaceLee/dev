@@ -1,6 +1,6 @@
 package com.ai.dev.support.exception;
 
-import com.ai.dev.support.context.ValidateResult;
+import com.ai.dev.common.exception.handler.ValidateResult;
 import lombok.Getter;
 
 /**

@@ -3,6 +3,7 @@ package com.ai.dev.mapper.customized;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -17,6 +18,7 @@ import java.util.Date;
 @Setter
 @Getter
 @NoArgsConstructor
+@Component
 public class TpTestcaseRequest implements Serializable {
 
 

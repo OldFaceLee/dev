@@ -3,6 +3,7 @@ package com.ai.dev.controller;
 import com.ai.dev.common.controller.response.Response;
 import com.ai.dev.dao.ITpTestcaseDao;
 import com.ai.dev.mapper.customized.TpTestcaseRequest;
+import com.ai.dev.mapper.vo.TpHttpCase;
 import com.ai.dev.mapper.vo.TpTestcase;
 import com.ai.dev.mapper.vo.TpUser;
 import com.ai.dev.service.ITestcaseSv;
@@ -29,6 +30,12 @@ public class TestcaseController {
 
     @Autowired
     ITestcaseSv testcaseSv;
+
+    @PostMapping(value = "/testcase/restful/add")
+    public Response addTestcase(TpHttpCase tpHttpCase){
+        return new Response<>(testcaseSv.addTestCase(tpHttpCase));
+    }
+
 
     @PostMapping(value = "/testcase/add",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public boolean addTestcase(@RequestBody @Valid TpTestcase testcase){

@@ -5,6 +5,9 @@ import com.ai.dev.common.exception.handler.ValidationError;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 错误的响应
+ */
 public class ErrorResponse {
     private String resultCode;
     private String resultMessage;

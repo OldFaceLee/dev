@@ -10,12 +10,12 @@ import lombok.experimental.FieldDefaults;
 /**
  * @author: lixuejun
  * @date: Create in 2020/3/12 下午6:11
- * @description:
+ * @description: 返回controller的响应
  */
 @Getter
 @Setter@FieldDefaults(level = AccessLevel.PRIVATE)
 
-public class Response<T> extends CommonResponse {
+public class Response<T> extends BaseResponse {
     private static final long serialVersionUID = -2635111722380521009L;
 
     T data;

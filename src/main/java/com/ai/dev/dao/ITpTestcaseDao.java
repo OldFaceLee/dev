@@ -2,6 +2,7 @@ package com.ai.dev.dao;
 
 import com.ai.dev.common.pageHelper.PageInfo;
 import com.ai.dev.mapper.customized.TpTestcaseRequest;
+import com.ai.dev.mapper.vo.TpHttpCase;
 import com.ai.dev.mapper.vo.TpTestcase;
 
 import java.util.List;
@@ -14,6 +15,13 @@ import java.util.List;
 public interface ITpTestcaseDao {
 
     int insert(TpTestcase testcase);
+
+    /**
+     * 添加http类型的用例，返回更新count
+     * @param tpHttpCase
+     * @return
+     */
+    int insert(TpHttpCase tpHttpCase);
 
     int update(TpTestcase testcase);
 

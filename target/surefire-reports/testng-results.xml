@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="6210" started-at="2020-05-25T02:33:34Z" finished-at="2020-05-25T02:33:41Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="6210" started-at="2020-05-25T02:33:34Z" finished-at="2020-05-25T02:33:41Z">
+      <class name="com.ai.dev.service.ITestcaseSvTest">
+        <test-method status="PASS" signature="test_addTestcase()" name="test_addTestcase" duration-ms="5450" started-at="2020-05-25T02:33:35Z" finished-at="2020-05-25T02:33:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_addTestcase -->
+      </class> <!-- com.ai.dev.service.ITestcaseSvTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

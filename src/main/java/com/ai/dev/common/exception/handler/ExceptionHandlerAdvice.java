@@ -2,11 +2,10 @@ package com.ai.dev.common.exception.handler;
 
 import com.ai.dev.common.controller.response.ErrorResponse;
 import com.ai.dev.common.controller.response.Response;
-import com.ai.dev.common.exception.base.KaraBusinessException;
-import com.ai.dev.common.exception.base.KaraRPCException;
-import com.ai.dev.common.exception.base.KaraSystemException;
+import com.ai.dev.common.exception.base.BaseBusinessException;
+import com.ai.dev.common.exception.base.BaseRPCException;
+import com.ai.dev.common.exception.base.BaseSystemException;
 import com.ai.dev.common.exception.em.ResultCode;
-import com.ai.dev.common.exception.handler.ValidationError;
 import com.ai.dev.support.exception.CrmValidateException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -58,15 +57,15 @@ public class ExceptionHandlerAdvice {
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON_UTF8).body(resp);
     }
 
-    @ExceptionHandler({KaraBusinessException.class})
-    public ResponseEntity<ErrorResponse> exception(KaraBusinessException e) {
+    @ExceptionHandler({BaseBusinessException.class})
+    public ResponseEntity<ErrorResponse> exception(BaseBusinessException e) {
         ErrorResponse resp = new ErrorResponse(e.getResultCode(), e.getResultMessage());
         log.error(e.getResultMessage(), e);
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON_UTF8).body(resp);
     }
 
-    @ExceptionHandler({KaraRPCException.class})
-    public ResponseEntity<ErrorResponse> exception(KaraRPCException e) {
+    @ExceptionHandler({BaseRPCException.class})
+    public ResponseEntity<ErrorResponse> exception(BaseRPCException e) {
         log.error(e.getResultMessage(), e);
         ErrorResponse resp = new ErrorResponse(e.getResultCode(), e.getResultMessage());
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON_UTF8).body(resp);
@@ -77,8 +76,8 @@ public class ExceptionHandlerAdvice {
         Throwable cause = e.getCause();
         if (cause instanceof InvocationTargetException) {
             Throwable targetException = ((InvocationTargetException) cause).getTargetException();
-            if (targetException instanceof KaraRPCException) {
-                return exception((KaraRPCException) targetException);
+            if (targetException instanceof BaseRPCException) {
+                return exception((BaseRPCException) targetException);
             } else {
                 return exception((Exception) targetException);
             }
@@ -143,8 +142,8 @@ public class ExceptionHandlerAdvice {
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON_UTF8).body(resp);
     }
 
-    @ExceptionHandler({KaraSystemException.class})
-    public ResponseEntity<ErrorResponse> exception(KaraSystemException e) {
+    @ExceptionHandler({BaseSystemException.class})
+    public ResponseEntity<ErrorResponse> exception(BaseSystemException e) {
         log.error(e.getResultMessage(), e);
         ErrorResponse resp = new ErrorResponse(e.getResultCode(), e.getResultMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).contentType(MediaType.APPLICATION_JSON_UTF8).body(resp);

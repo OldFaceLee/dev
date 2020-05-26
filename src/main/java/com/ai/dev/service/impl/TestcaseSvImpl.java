@@ -4,6 +4,7 @@ import com.ai.dev.common.pageHelper.PageInfo;
 import com.ai.dev.dao.ITpTestcaseDao;
 import com.ai.dev.mapper.customized.ICustomizedTpTestcaseDao;
 import com.ai.dev.mapper.customized.TpTestcaseRequest;
+import com.ai.dev.mapper.vo.TpHttpCase;
 import com.ai.dev.mapper.vo.TpTestcase;
 import com.ai.dev.service.ITestcaseSv;
 import com.ai.dev.support.sysdate.ISysDateObtain;
@@ -16,6 +17,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -48,6 +50,19 @@ public class TestcaseSvImpl implements ITestcaseSv {
         testcase.setCreateDate(sysDateObtain.getSysdate());
 //        testcase.setIsValid(TestcaseEnum.VALID.getValue());
         return tpTestcaseDao.insert(testcase) >0 ? true : false;
+    }
+
+    @Override
+    public TpHttpCase addTestCase(TpHttpCase tpHttpCase) {
+        Assert.notNull(tpHttpCase,"httpcase对象不能为空");
+        tpHttpCase.setCreateUser(tpHttpCase.getCreateUser());
+        tpHttpCase.setCreateDate(sysDateObtain.getSysdate());
+        tpHttpCase.setIsValid(1);
+        if(tpTestcaseDao.insert(tpHttpCase) > 0){
+            log.info("数据库操作执行："+tpTestcaseDao.insert(tpHttpCase));
+            return tpHttpCase;
+        }
+        return null;
     }
 
     @Override
