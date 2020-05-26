@@ -6,17 +6,17 @@ import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.restdocs.JUnitRestDocumentation;
+import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -24,6 +24,16 @@ import org.springframework.web.context.WebApplicationContext;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.util.Map;
+
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
+import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
+import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.payload.PayloadDocumentation.*;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 
 /**
@@ -41,6 +51,18 @@ public abstract class AbstractBaseControllerTest {
     @Autowired
     private WebApplicationContext context;
 
+    @Rule
+    public final JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation("build/asciidoc");
+
+    @Before
+    public void setUp(){
+        log.info("开始controller层测试");
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.context)
+                .apply(documentationConfiguration(this.restDocumentation))
+                .build();
+        log.info("初始化WebApplicationContext对象");
+    }
+
     /**
      * Get请求
      * @param uri
@@ -51,8 +73,18 @@ public abstract class AbstractBaseControllerTest {
         String response = null;
         try {
             response = this.commonRequest("get",uri,header,null)
+                    .andDo(document("start_test_doc",
+//                        requestHeaders(headerWithName("Authorization").description("{token_type} {access_token}")),
+                        relaxedResponseFields(
+                                fieldWithPath("resultCode").description("响应状态码 000000-成功;其它-失败").type(JsonFieldType.STRING),
+                                fieldWithPath("resultMessage").description("响应结果描述"),
+                                fieldWithPath("data").description("响应成功返回数据").type(JsonFieldType.STRING)
+                        )
+                        ))
                     .andReturn().getResponse().getContentAsString();
         } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         log.info("返回的结果"+response);
@@ -79,6 +111,14 @@ public abstract class AbstractBaseControllerTest {
     }
 
 
+    /**
+     * 私有方法
+     * @param getOrPost
+     * @param uri
+     * @param header
+     * @param jsonParam
+     * @return
+     */
     private ResultActions commonRequest(String getOrPost,String uri,Map<String,String>header,String jsonParam){
         HttpHeaders httpHeaders = new HttpHeaders();
         ResultActions actions = null;
@@ -111,13 +151,6 @@ public abstract class AbstractBaseControllerTest {
         }
         return actions;
 
-    }
-
-    @Before
-    public void setUp(){
-       log.info("开始controller层测试");
-       mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
-       log.info("初始化WebApplicationContext对象");
     }
 
     @After
