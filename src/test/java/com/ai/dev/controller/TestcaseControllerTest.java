@@ -31,7 +31,7 @@ public class TestcaseControllerTest extends AbstractBaseControllerTest{
 
 
     @Test
-    public void addHttpCase() throws Exception {
+    public void addHttpCase(){
         TpHttpCase tpHttpCase = new TpHttpCase();
         tpHttpCase.setCaseId("TC002");
         tpHttpCase.setSystemName("京东");
@@ -49,7 +49,12 @@ public class TestcaseControllerTest extends AbstractBaseControllerTest{
         header.put("type","application/json");
         post("/testcase/restful/add",header,JSON.toJSONString(tpHttpCase));
 
+    }
 
+
+    @Test
+    public void testAjax(){
+        get("/test/ajax/params",new HashMap<>());
     }
 
 }

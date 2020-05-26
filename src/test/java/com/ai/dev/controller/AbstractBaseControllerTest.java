@@ -55,6 +55,7 @@ public abstract class AbstractBaseControllerTest {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        log.info("返回的结果"+response);
         return JSON.parseObject(response);
     }
 

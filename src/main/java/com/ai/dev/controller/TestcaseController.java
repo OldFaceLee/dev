@@ -64,11 +64,11 @@ return false;
     }
 
     @GetMapping(value = "test/ajax/{param}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Boolean testAjax(@PathVariable String param){
+    public Response testAjax(@PathVariable String param){
         if(param.equalsIgnoreCase("param")){
-            return true;
+            return new Response(param);
         }
-        return false;
+        return new Response("为空");
     }
 
 
