@@ -605,6 +605,66 @@ public class TpHttpCaseCriteria {
             return (Criteria) this;
         }
 
+        public Criteria andRequestTypeIsNull() {
+            addCriterion("request_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRequestTypeIsNotNull() {
+            addCriterion("request_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRequestTypeEqualTo(Integer value) {
+            addCriterion("request_type =", value, "requestType");
+            return (Criteria) this;
+        }
+
+        public Criteria andRequestTypeNotEqualTo(Integer value) {
+            addCriterion("request_type <>", value, "requestType");
+            return (Criteria) this;
+        }
+
+        public Criteria andRequestTypeGreaterThan(Integer value) {
+            addCriterion("request_type >", value, "requestType");
+            return (Criteria) this;
+        }
+
+        public Criteria andRequestTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("request_type >=", value, "requestType");
+            return (Criteria) this;
+        }
+
+        public Criteria andRequestTypeLessThan(Integer value) {
+            addCriterion("request_type <", value, "requestType");
+            return (Criteria) this;
+        }
+
+        public Criteria andRequestTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("request_type <=", value, "requestType");
+            return (Criteria) this;
+        }
+
+        public Criteria andRequestTypeIn(List<Integer> values) {
+            addCriterion("request_type in", values, "requestType");
+            return (Criteria) this;
+        }
+
+        public Criteria andRequestTypeNotIn(List<Integer> values) {
+            addCriterion("request_type not in", values, "requestType");
+            return (Criteria) this;
+        }
+
+        public Criteria andRequestTypeBetween(Integer value1, Integer value2) {
+            addCriterion("request_type between", value1, value2, "requestType");
+            return (Criteria) this;
+        }
+
+        public Criteria andRequestTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("request_type not between", value1, value2, "requestType");
+            return (Criteria) this;
+        }
+
         public Criteria andUriIsNull() {
             addCriterion("uri is null");
             return (Criteria) this;

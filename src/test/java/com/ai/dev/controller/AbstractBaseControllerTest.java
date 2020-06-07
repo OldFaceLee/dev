@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -34,6 +35,7 @@ import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuild
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 /**
@@ -52,7 +54,7 @@ public abstract class AbstractBaseControllerTest {
     private WebApplicationContext context;
 
     @Rule
-    public final JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation("build/asciidoc");
+    public final JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation();
 
     @Before
     public void setUp(){
@@ -73,6 +75,7 @@ public abstract class AbstractBaseControllerTest {
         String response = null;
         try {
             response = this.commonRequest("get",uri,header,null)
+                    /*.andExpect(status().isOk())
                     .andDo(document("start_test_doc",
 //                        requestHeaders(headerWithName("Authorization").description("{token_type} {access_token}")),
                         relaxedResponseFields(
@@ -80,7 +83,7 @@ public abstract class AbstractBaseControllerTest {
                                 fieldWithPath("resultMessage").description("响应结果描述"),
                                 fieldWithPath("data").description("响应成功返回数据").type(JsonFieldType.STRING)
                         )
-                        ))
+                        ))*/
                     .andReturn().getResponse().getContentAsString();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();

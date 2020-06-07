@@ -4,6 +4,7 @@ import com.ai.dev.common.pageHelper.PageInfo;
 import com.ai.dev.mapper.customized.TpTestcaseRequest;
 import com.ai.dev.mapper.vo.TpHttpCase;
 import com.ai.dev.mapper.vo.TpTestcase;
+import com.alibaba.fastjson.JSONObject;
 
 /**
  * @author: lixuejun
@@ -15,6 +16,8 @@ public interface ITestcaseSv {
     boolean addTestcase(TpTestcase testcase);
 
     TpHttpCase addTestCase(TpHttpCase tpHttpCase);
+
+    void runTestNGCase(TpHttpCase tpHttpCase);
 
     boolean updateTestcase(TpTestcase testcase);
 

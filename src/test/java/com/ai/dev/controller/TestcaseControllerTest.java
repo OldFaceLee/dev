@@ -51,6 +51,34 @@ public class TestcaseControllerTest extends AbstractBaseControllerTest{
 
     }
 
+    @Test
+    public void runCase(){
+        TpHttpCase tpHttpCase = new TpHttpCase();
+        tpHttpCase.setCaseId("TC005");
+        tpHttpCase.setSystemName("testNG");
+        tpHttpCase.setCaseName("通过testNG设置");
+        tpHttpCase.setCaseDesc("描述testNG");
+        tpHttpCase.setCaseGroups("组testNG");
+        tpHttpCase.setRequestType(1);
+        tpHttpCase.setUri("http://localhost:8080/testcase/restful/add");
+        tpHttpCase.setPort(0);
+        tpHttpCase.setHeader("{\"auth\":\"accessToken\"}");
+        tpHttpCase.setRequestBody("{\"key\":\"value\"}");
+        tpHttpCase.setCheckSql("select * from table");
+        tpHttpCase.setExpectedResult("这就是期望的");
+        tpHttpCase.setCreateUser("李学军");
+        tpHttpCase.setCreateDate(new Date());
+        tpHttpCase.setOperateUser("李学军");
+        tpHttpCase.setUpdateDate(new Date());
+        tpHttpCase.setIsValid(1);
+
+        Map<String,String> header = new HashMap<String,String>();
+        header.put("auth","value");
+        header.put("type","application/json");
+        post("/testcase/run",header,JSON.toJSONString(tpHttpCase));
+
+    }
+
 
     @Test
     public void testAjax(){

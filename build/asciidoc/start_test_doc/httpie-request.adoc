@@ -1,6 +1,0 @@
-[source,bash]
-----
-$ http GET 'http://localhost:8080/test/ajax/params' \
-    'Content-Type:application/json' \
-    'Accept:application/json'
-----

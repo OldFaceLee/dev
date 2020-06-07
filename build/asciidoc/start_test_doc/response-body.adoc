@@ -1,4 +1,0 @@
-[source,options="nowrap"]
-----
-{"resultCode":"000000","resultMessage":"OK","data":"为空"}
-----

@@ -54,6 +54,12 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
 
+        <table tableName="tp_gis" enableCountByExample="true"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+
     </context>
 </generatorConfiguration>
 

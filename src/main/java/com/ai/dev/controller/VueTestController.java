@@ -3,6 +3,7 @@ package com.ai.dev.controller;
 import com.ai.dev.common.controller.response.Response;
 import com.ai.dev.mapper.customized.vo.VueTestRequest;
 import com.ai.dev.mapper.customized.vo.VueTestSubmitRequest;
+import com.ai.dev.response.GisResponse;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
@@ -43,6 +44,12 @@ public class VueTestController {
         log.info(String.format("传入的密码为【%s】,传入的确认密码【%s】,传入的年龄【%d】",submitRequest.getPass(),submitRequest.getCheckPass(),submitRequest.getAge()));
         return new Response<>(submitRequest);
     }
+
+
+
+
+
+
 
 
 }

@@ -1,5 +1,7 @@
 package com.ai.dev.mapper.vo;
 
+import com.ai.dev.common.pageHelper.PageInfo;
+
 import java.io.Serializable;
 import java.util.Date;
 

@@ -12,16 +12,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum RestFulCaseEnum {
 
-    REQUEST_TYPE_GET("get","get请求"),
-    REQUEST_TYPE_POST("post","post请求"),
-    REQUEST_BODY_JSON_PARAM("json","jsonBody请求体"),
-    REQUEST_HTTP_TYPE("http","http类型"),
-    REQUEST_HTTPS_TYPE("https","https类型");
+    REQUEST_TYPE_GET(0,"get请求"),
+    REQUEST_TYPE_POST(1,"post请求");
 
 
-
-
-    String value;
+    Integer value;
     String desc;
+
 
 }
