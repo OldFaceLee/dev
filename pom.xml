@@ -123,7 +123,7 @@
                     <artifactId>spring</artifactId>
                 </exclusion>
             </exclusions>
-            <version>2.7.1</version>
+            <version>2.7.13</version>
         </dependency>
 
         <!-- dubbo规定了类加载器的接口，使用javassist用来实现类加载-->
